@@ -14,7 +14,7 @@ func newDeck() deck {
 
 	for _, suit := range cardSuits {
 		for _, value := range cardValues {
-			cards = append(cards, suit+" of "+value)
+			cards = append(cards, value+" of "+suit)
 		}
 
 	}
@@ -27,4 +27,9 @@ func (d deck) print() {
 	for i, card := range d {
 		fmt.Println(i, card)
 	}
+}
+
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+
 }
